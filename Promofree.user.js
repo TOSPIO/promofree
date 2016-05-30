@@ -7,12 +7,14 @@
 // @match        *://www.baidu.com/*
 // @match        *://www.sogou.com/*
 // @match        *://www.soso.com/*
+// @match        *://www.so.com/*
 // @grant        none
 // ==/UserScript==
 
 var urlMatchers = {
   baidu: /.*:\/\/www.baidu.com\/*/,
-  sogou: /.*:\/\/www.sogou.com\/*/
+  sogou: /.*:\/\/www.sogou.com\/*/,
+  so: /.*:\/\/www.so.com\/*/
 };
 
 var filters = {
@@ -26,6 +28,9 @@ var filters = {
   },
   sogou: function () {
     $('#promotion_adv_container').text("抵制商业推广");
+  },
+  so: function () {
+    $('#e_idea_pp').empty().append($('<li><h3>抵制商业推广</h3></li>'));
   }
 };
 
