@@ -8,16 +8,38 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    'use strict';
+var urlMatchers = {
+  baidu: /.*:\/\/www.baidu.com\/*/,
+  sogou: /.*:\/\/www.sogou.com\/*/
+}
 
-    var observer = new MutationObserver(function () {
-        var contentLeftDivs = $('#content_left').find('div');
-        contentLeftDivs.each(function(idx, elem) {
-            if($(elem).find('[data-tuiguang]').length > 0) {
-                $(elem).text("抵制商业推广");
-            }
-        });
+var filters = {
+  baidu: function () {
+    var contentLeftDivs = $('#content_left').find('div');
+    contentLeftDivs.each(function(idx, elem) {
+        if($(elem).find('[data-tuiguang]').length > 0) {
+            $(elem).text("抵制商业推广");
+        }
     });
-    observer.observe(document.getElementById('wrapper_wrapper'), {childList: true, attributes: true, characterData: true });
+  },
+  sogou: function () {
+    $('#promotion_adv_container').text("抵制商业推广");
+  }
+};
+
+
+
+(function() {
+  'use strict';
+  var filter = null;
+  for (var engine in urlMatchers) {
+    var matcher = urlMatchers[engine];
+    if (window.location.href.match(matcher)) {
+      filter = filters[engine]
+    }
+  }
+  if (filter !== null) {
+  var observer = new MutationObserver(filter);
+  observer.observe(document.body, {childList: true, attributes: true, characterData: true });
+  }
 })();
