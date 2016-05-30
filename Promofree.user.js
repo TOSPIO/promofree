@@ -5,13 +5,15 @@
 // @description  一起抵制商业推广！
 // @author       Usuzumi Yukio
 // @match        *://www.baidu.com/*
+// @match        *://www.sogou.com/*
+// @match        *://www.soso.com/*
 // @grant        none
 // ==/UserScript==
 
 var urlMatchers = {
   baidu: /.*:\/\/www.baidu.com\/*/,
   sogou: /.*:\/\/www.sogou.com\/*/
-}
+};
 
 var filters = {
   baidu: function () {
@@ -35,7 +37,7 @@ var filters = {
   for (var engine in urlMatchers) {
     var matcher = urlMatchers[engine];
     if (window.location.href.match(matcher)) {
-      filter = filters[engine]
+      filter = filters[engine];
     }
   }
   if (filter !== null) {
