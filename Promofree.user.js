@@ -42,7 +42,9 @@ var filters = {
   so: [
     {
       filter: function () {
-        $('#e_idea_pp').empty().append($('<li><h3>抵制商业推广</h3></li>'));
+        $('#e_idea_pp').empty().append(
+          $('<li><h3>抵制商业推广</h3></li>')
+        ).parent().prevAll().remove();
       },
       observeOn: document.getElementById('warper'),
       observeOptions: {  }
