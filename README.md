@@ -10,3 +10,8 @@
 1. 安装Tampermonkey插件([http://tampermonkey.net/](http://tampermonkey.net/))。
 2. 打开[https://github.com/TOSPIO/promofree/raw/master/Promofree.user.js](https://github.com/TOSPIO/promofree/raw/master/Promofree.user.js)。
 3. 按提示操作即可。
+
+## 支持的搜索引擎
+
+1. [百度](http://www.baidu.com/)
+2. [搜狗](http://www.sogou.com/)
