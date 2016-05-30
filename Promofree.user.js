@@ -12,7 +12,12 @@
     'use strict';
 
     var observer = new MutationObserver(function () {
-    $('#content_left').find('[data-tuiguang]').parent().parent().text("抵制商业推广！！！");
+        var contentLeftDivs = $('#content_left').find('div');
+        contentLeftDivs.each(function(idx, elem) {
+            if($(elem).find('[data-tuiguang]').length > 0) {
+                $(elem).text("抵制商业推广");
+            }
+        });
     });
     observer.observe(document.getElementById('wrapper_wrapper'), {childList: true, attributes: true, characterData: true });
 })();
