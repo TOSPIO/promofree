@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  一起抵制商业推广！
 // @author       Usuzumi Yukio
-// @match        http://*/*
+// @match        *://www.baidu.com/*
 // @grant        none
 // ==/UserScript==
 
